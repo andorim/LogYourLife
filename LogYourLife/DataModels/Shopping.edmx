@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StoreSet" EntityType="Model1.Store" />
+          <EntitySet Name="ArticleSet" EntityType="Model1.Article" />
+          <EntitySet Name="BrandSet" EntityType="Model1.Brand" />
+          <AssociationSet Name="ArticleBrand" Association="Model1.ArticleBrand">
+            <End Role="Article" EntitySet="ArticleSet" />
+            <End Role="Brand" EntitySet="BrandSet" />
+          </AssociationSet>
+          <EntitySet Name="ShoppingSet" EntityType="Model1.Shopping" />
+          <AssociationSet Name="ShoppingStore" Association="Model1.ShoppingStore">
+            <End Role="Shopping" EntitySet="ShoppingSet" />
+            <End Role="Store" EntitySet="StoreSet" />
+          </AssociationSet>
+          <EntitySet Name="Shoping_ItemsSet" EntityType="Model1.Shoping_Items" />
+          <EntitySet Name="article_store_priceSet" EntityType="Model1.article_store_price" />
+          <AssociationSet Name="article_store_priceStore" Association="Model1.article_store_priceStore">
+            <End Role="article_store_price" EntitySet="article_store_priceSet" />
+            <End Role="Store" EntitySet="StoreSet" />
+          </AssociationSet>
+          <AssociationSet Name="article_store_priceArticle" Association="Model1.article_store_priceArticle">
+            <End Role="article_store_price" EntitySet="article_store_priceSet" />
+            <End Role="Article" EntitySet="ArticleSet" />
+          </AssociationSet>
+          <EntitySet Name="MeasureSet" EntityType="Model1.Measure" />
+          <AssociationSet Name="ArticleMeasure" Association="Model1.ArticleMeasure">
+            <End Role="Article" EntitySet="ArticleSet" />
+            <End Role="Measure" EntitySet="MeasureSet" />
+          </AssociationSet>
+          <AssociationSet Name="ShoppingShoping_Items" Association="Model1.ShoppingShoping_Items">
+            <End Role="Shopping" EntitySet="ShoppingSet" />
+            <End Role="Shoping_Items" EntitySet="Shoping_ItemsSet" />
+          </AssociationSet>
+          <AssociationSet Name="Shoping_ItemsArticle" Association="Model1.Shoping_ItemsArticle">
+            <End Role="Shoping_Items" EntitySet="Shoping_ItemsSet" />
+            <End Role="Article" EntitySet="ArticleSet" />
+          </AssociationSet>
+          <AssociationSet Name="ArticleStore" Association="Model1.ArticleStore">
+            <End Role="Article" EntitySet="ArticleSet" />
+            <End Role="Store" EntitySet="StoreSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Shopping" Relationship="Model1.ShoppingStore" FromRole="Store" ToRole="Shopping" />
+          <NavigationProperty Name="article_store_price" Relationship="Model1.article_store_priceStore" FromRole="Store" ToRole="article_store_price" />
+          <NavigationProperty Name="Article" Relationship="Model1.ArticleStore" FromRole="Store" ToRole="Article" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Brand" Relationship="Model1.ArticleBrand" FromRole="Article" ToRole="Brand" />
+          <NavigationProperty Name="article_store_price" Relationship="Model1.article_store_priceArticle" FromRole="Article" ToRole="article_store_price" />
+          <NavigationProperty Name="Measure" Relationship="Model1.ArticleMeasure" FromRole="Article" ToRole="Measure" />
+          <NavigationProperty Name="Shoping_Items" Relationship="Model1.Shoping_ItemsArticle" FromRole="Article" ToRole="Shoping_Items" />
+          <NavigationProperty Name="Store" Relationship="Model1.ArticleStore" FromRole="Article" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="Model1.ArticleBrand" FromRole="Brand" ToRole="Article" />
+        </EntityType>
+        <Association Name="ArticleBrand">
+          <End Type="Model1.Article" Role="Article" Multiplicity="*" />
+          <End Type="Model1.Brand" Role="Brand" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Shopping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Store" Relationship="Model1.ShoppingStore" FromRole="Shopping" ToRole="Store" />
+          <Property Name="balance" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <NavigationProperty Name="Shoping_Items" Relationship="Model1.ShoppingShoping_Items" FromRole="Shopping" ToRole="Shoping_Items" />
+        </EntityType>
+        <Association Name="ShoppingStore">
+          <End Type="Model1.Shopping" Role="Shopping" Multiplicity="*" />
+          <End Type="Model1.Store" Role="Store" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Shoping_Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amount" Type="String" Nullable="false" />
+          <Property Name="article_price" Type="String" Nullable="false" />
+          <Property Name="line_price" Type="String" Nullable="false" />
+          <NavigationProperty Name="Shopping" Relationship="Model1.ShoppingShoping_Items" FromRole="Shoping_Items" ToRole="Shopping" />
+          <Property Name="ShoppingId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="Model1.Shoping_ItemsArticle" FromRole="Shoping_Items" ToRole="Article" />
+        </EntityType>
+        <EntityType Name="article_store_price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="default_price" Type="String" Nullable="false" />
+          <NavigationProperty Name="Store" Relationship="Model1.article_store_priceStore" FromRole="article_store_price" ToRole="Store" />
+          <NavigationProperty Name="Article" Relationship="Model1.article_store_priceArticle" FromRole="article_store_price" ToRole="Article" />
+          <Property Name="last_price" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="article_store_priceStore">
+          <End Type="Model1.article_store_price" Role="article_store_price" Multiplicity="*" />
+          <End Type="Model1.Store" Role="Store" Multiplicity="1" />
+        </Association>
+        <Association Name="article_store_priceArticle">
+          <End Type="Model1.article_store_price" Role="article_store_price" Multiplicity="*" />
+          <End Type="Model1.Article" Role="Article" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Measure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="Model1.ArticleMeasure" FromRole="Measure" ToRole="Article" />
+        </EntityType>
+        <Association Name="ArticleMeasure">
+          <End Type="Model1.Article" Role="Article" Multiplicity="*" />
+          <End Type="Model1.Measure" Role="Measure" Multiplicity="1" />
+        </Association>
+        <Association Name="ShoppingShoping_Items">
+          <End Type="Model1.Shopping" Role="Shopping" Multiplicity="1" />
+          <End Type="Model1.Shoping_Items" Role="Shoping_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shopping">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shoping_Items">
+              <PropertyRef Name="ShoppingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Shoping_ItemsArticle">
+          <End Type="Model1.Shoping_Items" Role="Shoping_Items" Multiplicity="*" />
+          <End Type="Model1.Article" Role="Article" Multiplicity="*" />
+        </Association>
+        <Association Name="ArticleStore">
+          <End Type="Model1.Article" Role="Article" Multiplicity="*" />
+          <End Type="Model1.Store" Role="Store" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

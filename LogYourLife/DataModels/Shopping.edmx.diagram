@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed717f2c8abe4e5991d643ce5e4ba7a3" Name="Diagram1" >
+        <EntityTypeShape EntityType="Model1.Store" Width="1.5" PointX="11.875" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Article" Width="1.5" PointX="6.75" PointY="1" />
+        <EntityTypeShape EntityType="Model1.Brand" Width="1.5" PointX="9.625" PointY="3.375" />
+        <AssociationConnector Association="Model1.ArticleBrand" ></AssociationConnector>
+        <EntityTypeShape EntityType="Model1.Shopping" Width="1.5" PointX="2.5" PointY="0.5" />
+        <AssociationConnector Association="Model1.ShoppingStore" />
+        <EntityTypeShape EntityType="Model1.Shoping_Items" Width="1.5" PointX="4.625" PointY="1" />
+        <EntityTypeShape EntityType="Model1.article_store_price" Width="1.5" PointX="9.625" PointY="1" />
+        <AssociationConnector Association="Model1.article_store_priceStore" />
+        <AssociationConnector Association="Model1.article_store_priceArticle" />
+        <EntityTypeShape EntityType="Model1.Measure" Width="1.5" PointX="9.625" PointY="5.125" />
+        <AssociationConnector Association="Model1.ArticleMeasure" />
+        <AssociationConnector Association="Model1.ShoppingShoping_Items" />
+        <AssociationConnector Association="Model1.Shoping_ItemsArticle" />
+        <AssociationConnector Association="Model1.ArticleStore" ManuallyRouted="false" >
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
