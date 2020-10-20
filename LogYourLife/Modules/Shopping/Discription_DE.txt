@@ -1,0 +1,6 @@
+﻿Trage deine Einkäufe ein um eine Übersicht zu erhalten. 
+
+Features:
+- Eintragen von Einkäufen
+- Preisverläufe pro Artikel
+- Monatsübersicht über Ausgaben

@@ -1,0 +1,6 @@
+﻿Enter your purchases to get an overview. 
+
+Features:
+- Entering purchases
+- Price histories per item
+- Monthly overview of expenditure

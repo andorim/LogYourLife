@@ -71,7 +71,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModels\Shopping.Designer.cs">
+    <Compile Include="Modules\Shopping\DataModels\Shopping.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Shopping.edmx</DependentUpon>
@@ -93,11 +93,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataModels\Shopping.edmx">
+    <EntityDeploy Include="Modules\Shopping\DataModels\Shopping.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Shopping.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataModels\Shopping.edmx.diagram">
+    <None Include="Modules\Shopping\DataModels\Shopping.edmx.diagram">
       <DependentUpon>Shopping.edmx</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
@@ -110,6 +110,28 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\Shopping\Database\FunctionClasses\" />
+    <Folder Include="Modules\Shopping\Database\ObjectClasses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\Shopping\Discription_DE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\Shopping\Discription_EN.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\Diary\Discription_DE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\Diary\Discription_EN.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\ActivityLog\Discription_DE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\ActivityLog\Discription_EN.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
