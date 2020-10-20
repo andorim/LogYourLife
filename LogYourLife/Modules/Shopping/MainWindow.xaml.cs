@@ -1,5 +1,4 @@
-﻿using LogYourLife.Modules.Shopping;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +10,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LogYourLife
+namespace LogYourLife.Modules.Shopping
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
@@ -24,12 +22,7 @@ namespace LogYourLife
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void btnShopping_Click(object sender, RoutedEventArgs e)
-        {
-            App.shoppingModule = new ShoppingModule();
-            App.shoppingModule.Init();
+            grMain.Children.Add(App.shoppingModule.mainMenu);
         }
     }
 }

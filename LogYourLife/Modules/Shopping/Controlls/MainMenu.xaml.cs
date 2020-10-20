@@ -1,5 +1,4 @@
-﻿using LogYourLife.Modules.Shopping;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LogYourLife
+namespace LogYourLife.Modules.Shopping.Controlls
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für MainMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainMenu : UserControl
     {
-        public MainWindow()
+        public MainMenu()
         {
             InitializeComponent();
-        }
-
-        private void btnShopping_Click(object sender, RoutedEventArgs e)
-        {
-            App.shoppingModule = new ShoppingModule();
-            App.shoppingModule.Init();
         }
     }
 }

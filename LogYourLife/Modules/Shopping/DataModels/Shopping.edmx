@@ -26,15 +26,7 @@
             <End Role="Store" EntitySet="StoreSet" />
           </AssociationSet>
           <EntitySet Name="Shoping_ItemsSet" EntityType="Model1.Shoping_Items" />
-          <EntitySet Name="article_store_priceSet" EntityType="Model1.article_store_price" />
-          <AssociationSet Name="article_store_priceStore" Association="Model1.article_store_priceStore">
-            <End Role="article_store_price" EntitySet="article_store_priceSet" />
-            <End Role="Store" EntitySet="StoreSet" />
-          </AssociationSet>
-          <AssociationSet Name="article_store_priceArticle" Association="Model1.article_store_priceArticle">
-            <End Role="article_store_price" EntitySet="article_store_priceSet" />
-            <End Role="Article" EntitySet="ArticleSet" />
-          </AssociationSet>
+          <EntitySet Name="PriceSet" EntityType="Model1.Price" />
           <EntitySet Name="MeasureSet" EntityType="Model1.Measure" />
           <AssociationSet Name="ArticleMeasure" Association="Model1.ArticleMeasure">
             <End Role="Article" EntitySet="ArticleSet" />
@@ -52,6 +44,14 @@
             <End Role="Article" EntitySet="ArticleSet" />
             <End Role="Store" EntitySet="StoreSet" />
           </AssociationSet>
+          <AssociationSet Name="ArticlePrice" Association="Model1.ArticlePrice">
+            <End Role="Article" EntitySet="ArticleSet" />
+            <End Role="Price" EntitySet="PriceSet" />
+          </AssociationSet>
+          <AssociationSet Name="StorePrice" Association="Model1.StorePrice">
+            <End Role="Store" EntitySet="StoreSet" />
+            <End Role="Price" EntitySet="PriceSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Store">
           <Key>
@@ -60,8 +60,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
           <NavigationProperty Name="Shopping" Relationship="Model1.ShoppingStore" FromRole="Store" ToRole="Shopping" />
-          <NavigationProperty Name="article_store_price" Relationship="Model1.article_store_priceStore" FromRole="Store" ToRole="article_store_price" />
           <NavigationProperty Name="Article" Relationship="Model1.ArticleStore" FromRole="Store" ToRole="Article" />
+          <NavigationProperty Name="Price" Relationship="Model1.StorePrice" FromRole="Store" ToRole="Price" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -69,10 +69,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Brand" Relationship="Model1.ArticleBrand" FromRole="Article" ToRole="Brand" />
-          <NavigationProperty Name="article_store_price" Relationship="Model1.article_store_priceArticle" FromRole="Article" ToRole="article_store_price" />
           <NavigationProperty Name="Measure" Relationship="Model1.ArticleMeasure" FromRole="Article" ToRole="Measure" />
           <NavigationProperty Name="Shoping_Items" Relationship="Model1.Shoping_ItemsArticle" FromRole="Article" ToRole="Shoping_Items" />
           <NavigationProperty Name="Store" Relationship="Model1.ArticleStore" FromRole="Article" ToRole="Store" />
+          <NavigationProperty Name="Price" Relationship="Model1.ArticlePrice" FromRole="Article" ToRole="Price" />
+          <Property Name="name" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Brand">
           <Key>
@@ -109,27 +110,18 @@
           <Property Name="article_price" Type="String" Nullable="false" />
           <Property Name="line_price" Type="String" Nullable="false" />
           <NavigationProperty Name="Shopping" Relationship="Model1.ShoppingShoping_Items" FromRole="Shoping_Items" ToRole="Shopping" />
-          <Property Name="ShoppingId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Article" Relationship="Model1.Shoping_ItemsArticle" FromRole="Shoping_Items" ToRole="Article" />
         </EntityType>
-        <EntityType Name="article_store_price">
+        <EntityType Name="Price">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="default_price" Type="String" Nullable="false" />
-          <NavigationProperty Name="Store" Relationship="Model1.article_store_priceStore" FromRole="article_store_price" ToRole="Store" />
-          <NavigationProperty Name="Article" Relationship="Model1.article_store_priceArticle" FromRole="article_store_price" ToRole="Article" />
-          <Property Name="last_price" Type="String" Nullable="false" />
+          <Property Name="date" Type="String" Nullable="false" />
+          <Property Name="value" Type="String" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="Model1.ArticlePrice" FromRole="Price" ToRole="Article" />
+          <NavigationProperty Name="Store" Relationship="Model1.StorePrice" FromRole="Price" ToRole="Store" />
         </EntityType>
-        <Association Name="article_store_priceStore">
-          <End Type="Model1.article_store_price" Role="article_store_price" Multiplicity="*" />
-          <End Type="Model1.Store" Role="Store" Multiplicity="1" />
-        </Association>
-        <Association Name="article_store_priceArticle">
-          <End Type="Model1.article_store_price" Role="article_store_price" Multiplicity="*" />
-          <End Type="Model1.Article" Role="Article" Multiplicity="1" />
-        </Association>
         <EntityType Name="Measure">
           <Key>
             <PropertyRef Name="Id" />
@@ -161,6 +153,14 @@
         <Association Name="ArticleStore">
           <End Type="Model1.Article" Role="Article" Multiplicity="*" />
           <End Type="Model1.Store" Role="Store" Multiplicity="*" />
+        </Association>
+        <Association Name="ArticlePrice">
+          <End Type="Model1.Article" Role="Article" Multiplicity="*" />
+          <End Type="Model1.Price" Role="Price" Multiplicity="*" />
+        </Association>
+        <Association Name="StorePrice">
+          <End Type="Model1.Store" Role="Store" Multiplicity="*" />
+          <End Type="Model1.Price" Role="Price" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
