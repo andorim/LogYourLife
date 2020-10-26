@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LogYourLife.Modules.Shopping
+namespace LogYourLife.Modules.Shopping.Pages
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für NewShopping.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewShopping : Page
     {
-        public MainWindow()
+        public NewShopping()
         {
             InitializeComponent();
-            
-        }
-        public void ShowMenu()
-        {
-            grMain.Children.Add(App.shoppingModule.mainMenu);
         }
     }
 }

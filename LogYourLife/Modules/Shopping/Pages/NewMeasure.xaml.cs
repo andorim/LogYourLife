@@ -10,23 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LogYourLife.Modules.Shopping
+using LogYourLife.Modules.Shopping.Database.ObjectClasses;
+
+namespace LogYourLife.Modules.Shopping.Pages
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für NewMeasure.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewMeasure : Page
     {
-        public MainWindow()
+        public NewMeasure()
         {
             InitializeComponent();
-            
         }
-        public void ShowMenu()
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            grMain.Children.Add(App.shoppingModule.mainMenu);
+            MeasureUnit measure = new MeasureUnit();
+            measure.name = tbName.Text;
+            measure.Insert();
         }
     }
 }

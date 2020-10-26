@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogYourLife.Modules.Shopping.Database.ObjectClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,23 +11,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LogYourLife.Modules.Shopping
+namespace LogYourLife.Modules.Shopping.Pages
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für NewBrand.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewBrand : Page
     {
-        public MainWindow()
+        public NewBrand()
         {
             InitializeComponent();
-            
         }
-        public void ShowMenu()
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            grMain.Children.Add(App.shoppingModule.mainMenu);
+            Brand brand = new Brand();
+            brand.name = tbName.Text;
+            brand.Insert();
         }
     }
 }

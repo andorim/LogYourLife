@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LogYourLife.Modules.Shopping.Database.ObjectClasses;
+using LogYourLife.Modules.Shopping.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,69 @@ namespace LogYourLife.Modules.Shopping.Controlls
     /// </summary>
     public partial class MainMenu : UserControl
     {
+        ShoppingModule shoppingModule;
+        MainWindow mainWindow;
         public MainMenu()
         {
+            shoppingModule = App.shoppingModule;
+            mainWindow = App.shoppingModule.mainWindow;
             InitializeComponent();
+        }
+
+        private void btnNewStore_Click(object sender, RoutedEventArgs e)
+        {
+            shoppingModule.newStore = new NewStore();
+            mainWindow.frMain.Navigate(shoppingModule.newStore);
+        }
+
+        private void btnNewShopping_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
+
+        private void btnNewArticle_Click(object sender, RoutedEventArgs e)
+        {
+            shoppingModule.newArticle = new NewArticle();
+            mainWindow.frMain.Navigate(shoppingModule.newArticle);
+        }
+
+        private void btnNewBrand_Click(object sender, RoutedEventArgs e)
+        {
+            shoppingModule.newBrand = new NewBrand();
+            mainWindow.frMain.Navigate(shoppingModule.newBrand);
+        }
+
+        private void btnNewMeasure_Click(object sender, RoutedEventArgs e)
+        {
+            shoppingModule.newMeasure = new NewMeasure();
+            mainWindow.frMain.Navigate(shoppingModule.newMeasure);
+        }
+
+        private void btnShowStores_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Store> ie = Store.getAll();
+            shoppingModule.list = new ItemList(ie);
+            mainWindow.frMain.Navigate(shoppingModule.list);
+        }
+        private void btnShowBrands_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Brand> ie = Brand.getAll();
+            shoppingModule.list = new ItemList(ie);
+            mainWindow.frMain.Navigate(shoppingModule.list);
+        }
+
+        private void btnShowMeasures_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<MeasureUnit> ie = MeasureUnit.getAll();
+            shoppingModule.list = new ItemList(ie);
+            mainWindow.frMain.Navigate(shoppingModule.list);
+        }
+
+        private void btnShowArticles_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

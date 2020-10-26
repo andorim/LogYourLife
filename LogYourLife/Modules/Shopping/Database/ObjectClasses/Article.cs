@@ -17,6 +17,7 @@ namespace LogYourLife.Modules.Shopping.Database.ObjectClasses
         int currentPriceId { get; set; }
 
         int brandId { get; set; }
+        double amount { get; set; }
         int measureId { get; set; }
     }
 }

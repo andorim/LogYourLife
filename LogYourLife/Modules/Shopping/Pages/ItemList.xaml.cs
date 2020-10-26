@@ -10,23 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LogYourLife.Modules.Shopping
+namespace LogYourLife.Modules.Shopping.Pages
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für List.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ItemList : Page
     {
-        public MainWindow()
+        public ItemList()
         {
             InitializeComponent();
-            
         }
-        public void ShowMenu()
+        public ItemList(IEnumerable<Object> list)
         {
-            grMain.Children.Add(App.shoppingModule.mainMenu);
+            InitializeComponent();
+            foreach( object obj in list)
+            {
+                lbMain.Items.Add(obj.ToString());
+            }
         }
     }
 }

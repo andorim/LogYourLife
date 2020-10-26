@@ -107,6 +107,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\Shopping\Pages\ItemList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Shopping\Pages\NewArticle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Shopping\Pages\NewBrand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Shopping\Pages\NewMeasure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Shopping\Pages\NewShopping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Shopping\Pages\NewStore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\Shopping\Config.cs" />
@@ -116,11 +140,12 @@
     <Compile Include="Modules\Shopping\Database\FunctionClasses\DatabaseTools.cs" />
     <Compile Include="Modules\Shopping\Database\ObjectClasses\Article.cs" />
     <Compile Include="Modules\Shopping\Database\ObjectClasses\Brand.cs" />
-    <Compile Include="Modules\Shopping\Database\ObjectClasses\Measure.cs" />
+    <Compile Include="Modules\Shopping\Database\ObjectClasses\MeasureUnit.cs" />
     <Compile Include="Modules\Shopping\Database\ObjectClasses\Price.cs" />
     <Compile Include="Modules\Shopping\Database\ObjectClasses\Shopping.cs" />
     <Compile Include="Modules\Shopping\Database\ObjectClasses\Shopping_Item.cs" />
     <Compile Include="Modules\Shopping\Database\ObjectClasses\Store.cs" />
+    <Compile Include="Modules\Shopping\Database\ObjectClasses\StoreArticle.cs" />
     <Compile Include="Modules\Shopping\DataModels\Shopping.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +153,24 @@
     </Compile>
     <Compile Include="Modules\Shopping\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Shopping\Pages\ItemList.xaml.cs">
+      <DependentUpon>ItemList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Shopping\Pages\NewArticle.xaml.cs">
+      <DependentUpon>NewArticle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Shopping\Pages\NewBrand.xaml.cs">
+      <DependentUpon>NewBrand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Shopping\Pages\NewMeasure.xaml.cs">
+      <DependentUpon>NewMeasure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Shopping\Pages\NewShopping.xaml.cs">
+      <DependentUpon>NewShopping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Shopping\Pages\NewStore.xaml.cs">
+      <DependentUpon>NewStore.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Shopping\ShoppingModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

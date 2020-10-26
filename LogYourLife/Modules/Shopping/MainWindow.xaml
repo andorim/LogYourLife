@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="grMain">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="650"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Frame x:Name="frMain" Grid.Column="1" NavigationUIVisibility="Hidden">
+            
+        </Frame>
     </Grid>
 </Window>

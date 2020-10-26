@@ -3,38 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LogYourLife.Modules.Shopping.Database.FunctionClasses;
+
 using SQLite;
+
+using LogYourLife.Modules.Shopping.Database.FunctionClasses;
 
 namespace LogYourLife.Modules.Shopping.Database.ObjectClasses
 {
-    class Store
+    class MeasureUnit
     {
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }
         public string name { get; set; }
 
-
         public static void CreateTable()
         {
             SQLiteConnection db = DatabaseTools.getConnection();
-            db.CreateTable<Store>();
+            db.CreateTable<MeasureUnit>();
             db.Close();
         }
 
-        public static IEnumerable<Store> getAll()
+        public static IEnumerable<MeasureUnit> getAll()
         {
             SQLiteConnection db = DatabaseTools.getConnection();
-            IEnumerable<Store> result = db.Query<Store>("SELECT * FROM Store Order By id");
+            IEnumerable<MeasureUnit> result = db.Query<MeasureUnit>("SELECT * FROM MeasureUnit Order By id");
             db.Close();
             return result;
         }
 
-        public static Store getById(int id)
+        public static MeasureUnit getById(int id)
         {
             SQLiteConnection db = DatabaseTools.getConnection();
-            IEnumerable<Store> result = db.Query<Store>("SELECT * FROM Store WHERE id = " + id);
-            foreach(Store st in result)
+            IEnumerable<MeasureUnit> result = db.Query<MeasureUnit>("SELECT * FROM MeasureUnit WHERE id = " + id);
+            foreach (MeasureUnit st in result)
             {
                 return st;
             }
@@ -44,7 +45,7 @@ namespace LogYourLife.Modules.Shopping.Database.ObjectClasses
         override
         public string ToString()
         {
-            return id +" "+name;
+            return id + " " + name;
         }
 
         public void Insert()
@@ -53,5 +54,6 @@ namespace LogYourLife.Modules.Shopping.Database.ObjectClasses
             db.Insert(this);
             db.Close();
         }
+
     }
 }
