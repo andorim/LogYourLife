@@ -9,50 +9,51 @@
       Title="NewArticle">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"></ColumnDefinition>
-            <ColumnDefinition Width="150"></ColumnDefinition>
-            <ColumnDefinition Width="30"></ColumnDefinition>
-            <ColumnDefinition Width="30"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" >Store</Label>
-        <ComboBox x:Name="cbStore" Grid.Column="1" Grid.Row="0"></ComboBox>
-        <Button x:Name="btnAddStore" Grid.Column="2" Grid.Row="0">+</Button>
-        <Button x:Name="btnReloadStore" Grid.Column="3" Grid.Row="0">&#x27F3;</Button>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" >Store</Label>
+            <ComboBox x:Name="cbStore" Grid.Column="1" Grid.Row="0"></ComboBox>
+            <Button x:Name="btnAddStore" Grid.Column="2" Grid.Row="0" Click="btnAddStore_Click">+</Button>
+            <Button x:Name="btnReloadStore" Grid.Column="3" Grid.Row="0" Click="btnReloadStore_Click" >&#x27F3;</Button>
 
-        <Label Grid.Column="0" Grid.Row="1">Name</Label>
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="tbName"></TextBox>
+            <Label Grid.Column="0" Grid.Row="1">Name</Label>
+            <TextBox Grid.Column="1" Grid.Row="1" x:Name="tbName"></TextBox>
 
-        <Label Grid.Column="0" Grid.Row="2">Brand</Label>
-        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbBrand"></ComboBox>
-        <Button x:Name="btnAddBrand" Grid.Column="2" Grid.Row="2">+</Button>
-        <Button x:Name="btnReloadBrand" Grid.Column="3" Grid.Row="2">&#x27F3;</Button>
+            <Label Grid.Column="0" Grid.Row="2">Brand</Label>
+            <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbBrand"></ComboBox>
+            <Button x:Name="btnAddBrand" Grid.Column="2" Grid.Row="2" Click="btnAddBrand_Click">+</Button>
+            <Button x:Name="btnReloadBrand" Grid.Column="3" Grid.Row="2" Click="btnReloadBrand_Click" >&#x27F3;</Button>
 
-        <Label Grid.Column="0" Grid.Row="3">Price</Label>
-        <TextBox Grid.Column="1" Grid.Row="3" x:Name="tbPrice"></TextBox>
+            <Label Grid.Column="0" Grid.Row="3">Price</Label>
+            <TextBox Grid.Column="1" Grid.Row="3" x:Name="tbPrice"></TextBox>
 
-        <Label Grid.Column="0" Grid.Row="4">Amount</Label>
-        <TextBox Grid.Column="1" Grid.Row="4" x:Name="tbAmount"></TextBox>
+            <Label Grid.Column="0" Grid.Row="4">Amount</Label>
+            <TextBox Grid.Column="1" Grid.Row="4" x:Name="tbAmount"></TextBox>
 
-        <Label Grid.Column="0" Grid.Row="5">Measure</Label>
-        <ComboBox Grid.Column="1" Grid.Row="5" x:Name="cbMeasureUnit"></ComboBox>
-        <Button x:Name="btnAddMeasure" Grid.Column="2" Grid.Row="5">+</Button>
-        <Button x:Name="btnReloadMeasure" Grid.Column="3" Grid.Row="5">&#x27F3;</Button>
+            <Label Grid.Column="0" Grid.Row="5">Measure</Label>
+            <ComboBox Grid.Column="1" Grid.Row="5" x:Name="cbMeasureUnit"></ComboBox>
+            <Button x:Name="btnAddMeasure" Grid.Column="2" Grid.Row="5" Click="btnAddMeasure_Click">+</Button>
+            <Button x:Name="btnReloadMeasure" Grid.Column="3" Grid.Row="5" Click="btnReloadMeasure_Click">&#x27F3;</Button>
 
-        <Frame x:Name="frAdd" Grid.Column="0" Grid.Row="0" Width="300" Height="450">
-            
-        </Frame>
 
-        <Button Grid.Column="1" Grid.Row="6" x:Name="btnSave"></Button>
 
+            <Button Grid.Column="1" Grid.Row="6" x:Name="btnSave" Click="btnSave_Click">btnSave</Button>
+
+        </Grid>
     </Grid>
+    
 </Page>

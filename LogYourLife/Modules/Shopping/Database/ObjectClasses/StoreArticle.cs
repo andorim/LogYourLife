@@ -11,9 +11,9 @@ namespace LogYourLife.Modules.Shopping.Database.ObjectClasses
     class StoreArticle
     {
         [PrimaryKey, AutoIncrement]
-        int id { get; set; }
-        int storeId { get; set; }
-        int articleId { get; set; }
+        public int id { get; set; }
+        public int storeId { get; set; }
+        public int articleId { get; set; }
 
         public StoreArticle()
         {
@@ -24,6 +24,13 @@ namespace LogYourLife.Modules.Shopping.Database.ObjectClasses
         {
             this.storeId = storeId;
             this.articleId = articleId;
+        }
+
+        public static void CreateTabel()
+        {
+            SQLiteConnection db = DatabaseTools.getConnection();
+            db.CreateTable<StoreArticle>();
+            db.Close();
         }
 
         public void Insert()

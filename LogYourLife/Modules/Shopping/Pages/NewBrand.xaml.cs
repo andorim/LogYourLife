@@ -31,6 +31,8 @@ namespace LogYourLife.Modules.Shopping.Pages
             Brand brand = new Brand();
             brand.name = tbName.Text;
             brand.Insert();
+            App.shoppingModule.mainWindow.frMain.GoBack();
+            App.shoppingModule.mainWindow.frMain.RemoveBackEntry();
         }
     }
 }

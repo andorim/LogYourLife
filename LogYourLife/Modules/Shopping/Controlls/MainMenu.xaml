@@ -9,10 +9,7 @@
     <StackPanel Width="150" Orientation="Vertical" HorizontalAlignment="Left">
         <Button x:Name="btnNewShopping" Click="btnNewShopping_Click" >newShopping</Button>
         <Label></Label>
-        <Button x:Name="btnNewStore" Click="btnNewStore_Click" >newStore</Button>
         <Button x:Name="btnNewArticle" Click="btnNewArticle_Click" >newArticle</Button>
-        <Button x:Name="btnNewBrand" Click="btnNewBrand_Click">newBrand</Button>
-        <Button x:Name="btnNewMeasure" Click="btnNewMeasure_Click">newMeasure</Button>
         <Label></Label>
         <Button x:Name="btnShowArticles" Click="btnShowArticles_Click">showArticles</Button>
         <Button x:Name="btnShowStores" Click="btnShowStores_Click" >showStores</Button>

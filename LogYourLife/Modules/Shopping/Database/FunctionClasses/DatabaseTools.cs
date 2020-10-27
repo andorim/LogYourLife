@@ -36,6 +36,9 @@ namespace LogYourLife.Modules.Shopping.Database.FunctionClasses
             Store.CreateTable();
             Brand.CreateTable();
             MeasureUnit.CreateTable();
+            Article.CreateTable();
+            StoreArticle.CreateTabel();
+            Price.CreateTable();
         }
     }
 }

@@ -30,37 +30,16 @@ namespace LogYourLife.Modules.Shopping.Controlls
             mainWindow = App.shoppingModule.mainWindow;
             InitializeComponent();
         }
-
-        private void btnNewStore_Click(object sender, RoutedEventArgs e)
-        {
-            shoppingModule.newStore = new NewStore();
-            mainWindow.frMain.Navigate(shoppingModule.newStore);
-        }
-
         private void btnNewShopping_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-        
-
         private void btnNewArticle_Click(object sender, RoutedEventArgs e)
         {
             shoppingModule.newArticle = new NewArticle();
             mainWindow.frMain.Navigate(shoppingModule.newArticle);
         }
 
-        private void btnNewBrand_Click(object sender, RoutedEventArgs e)
-        {
-            shoppingModule.newBrand = new NewBrand();
-            mainWindow.frMain.Navigate(shoppingModule.newBrand);
-        }
-
-        private void btnNewMeasure_Click(object sender, RoutedEventArgs e)
-        {
-            shoppingModule.newMeasure = new NewMeasure();
-            mainWindow.frMain.Navigate(shoppingModule.newMeasure);
-        }
 
         private void btnShowStores_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +63,9 @@ namespace LogYourLife.Modules.Shopping.Controlls
 
         private void btnShowArticles_Click(object sender, RoutedEventArgs e)
         {
-
+            IEnumerable<Article> ie = Article.getAll();
+            shoppingModule.list = new ItemList(ie);
+            mainWindow.frMain.Navigate(shoppingModule.list);
         }
     }
 }

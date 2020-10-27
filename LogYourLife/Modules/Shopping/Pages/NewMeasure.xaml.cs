@@ -32,6 +32,8 @@ namespace LogYourLife.Modules.Shopping.Pages
             MeasureUnit measure = new MeasureUnit();
             measure.name = tbName.Text;
             measure.Insert();
+            App.shoppingModule.mainWindow.frMain.GoBack();
+            App.shoppingModule.mainWindow.frMain.RemoveBackEntry();
         }
     }
 }

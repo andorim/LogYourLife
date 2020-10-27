@@ -31,6 +31,8 @@ namespace LogYourLife.Modules.Shopping.Pages
             Store store = new Store();
             store.name = tbName.Text;
             store.Insert();
+            App.shoppingModule.mainWindow.frMain.GoBack();
+            App.shoppingModule.mainWindow.frMain.RemoveBackEntry();
         }
     }
 }
